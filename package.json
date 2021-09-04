@@ -1,0 +1,26 @@
+{
+  "version": "1.0.0",
+  "name": "use-s3-uploader",
+  "source": "src/index.ts",
+  "exports": "./dist/hotee-customizer.modern.js",
+  "main": "./dist/hotee-customizer.js",
+  "module": "./dist/hotee-customizer.module.js",
+  "unpkg": "./dist/hotee-customizer.umd.js",
+  "license": "MIT",
+  "scripts": {
+    "build:prod": "microbundle --define process.env.NODE_ENV=production --sourcemap false --jsx React.createElement --tsconfig ./tsconfig.json",
+    "build:dev": "microbundle --define process.env.NODE_ENV=development --sourcemap true --jsx React.createElement --tsconfig ./tsconfig.json",
+    "dev": "next"
+  },
+  "dependencies": {
+    "axios": "^0.21.1",
+    "next": "^11.1.2"
+  },
+  "devDependencies": {
+    "microbundle": "^0.13.3",
+    "mime-types": "^2.1.32",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "typescript": "^4.4.2"
+  }
+}

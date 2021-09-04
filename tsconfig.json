@@ -1,0 +1,64 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext",
+      "es2015.iterable"
+    ],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    // "typeRoots": ["./node_modules/@types"],
+    "baseUrl": "./",
+    "paths": {
+      "@material-ui/styled-engine": [
+        "node_modules/@material-ui/styled-engine-sc"
+      ],
+      "@root/*": [
+        "*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ],
+      "@stores/*": [
+        "stores/*"
+      ],
+      "@public/*": [
+        "public/*"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@constants/*": [
+        "constants/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ]
+    }, // 路径别名设置
+    "allowSyntheticDefaultImports": true,
+    // "noUnusedLocals": true,  // 未使用的组件检测
+    // "noUnusedParameters": true,  // 未使用的参数检测
+    "preserveConstEnums": true,
+    "removeComments": false,
+    "sourceMap": true
+  },
+  "include": [
+    "./src/*"
+  ],
+  "exclude": [
+    "pages/_app",
+    "pages/_document",
+    "node_modules"
+  ]
+}
