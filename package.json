@@ -6,6 +6,12 @@
   "main": "./dist/hotee-customizer.js",
   "module": "./dist/hotee-customizer.module.js",
   "unpkg": "./dist/hotee-customizer.umd.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wh5938316/use-s3-uploader.git"
+  },
+  "author": "WangHao",
+  "homepage": "https://github.com/wh5938316/use-s3-uploader",
   "license": "MIT",
   "scripts": {
     "build:prod": "microbundle --define process.env.NODE_ENV=production --sourcemap false --jsx React.createElement --tsconfig ./tsconfig.json",
