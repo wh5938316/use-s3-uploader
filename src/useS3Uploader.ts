@@ -27,16 +27,16 @@ const useS3Uploader = (options: Options, inputRef: Target) => {
     return s3Uploader;
   }, [options, inputRef]);
 
-  const onFileChange = useCallback((el, event: Event) => {
-    const files = el && el.files || [];
+  const onFileChange = useCallback((event) => {
+    const files = event.target.files || [];
     s3Upload.handle(files);
   }, []);
 
   useEffect(() => {
     const el = getTargetElement(inputRef);
-    el.addEventListener('change', (ev) => onFileChange(el, ev));
+    el.addEventListener('change', onFileChange);
     return () => {
-      el.removeEventListener('change', (ev) => onFileChange(el, ev));
+      el.removeEventListener('change', onFileChange);
     };
   }, [options, inputRef]);
 }
