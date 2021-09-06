@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "use-s3-uploader",
   "source": "src/index.ts",
   "exports": "./dist/use-s3-uploader.modern.js",
