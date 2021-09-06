@@ -5,20 +5,26 @@ import { getTargetElement, Target } from './utils/dom';
 type Fn = (...args: any) => any;
 
 export type Options = {
-  getSignedUrl: Fn
-  preprocess: Fn
-  onSignedUrl: Fn
-  onProgress: Fn
-  onFinish: Fn
-  onError: Fn
-  signingUrl: string
-  signingUrlMethod: string
-  signingUrlHeaders: Object | Fn
+  test?: boolean
+  getSignedUrl?: Fn
+  onUploadStart?: Fn
+  onSignedUrl?: Fn
+  onProgress?: Fn
+  onFinish?: Fn
+  onError?: Fn
+  signingUrl?: string
+  signingUrlMethod?: string
+  signingUrlHeaders?: Object | Fn
+  accept?: string
+  uploadRequestHeaders?: Object
+  contentDisposition?: string
 }
 
-const useS3Uploader = (options, inputRef: Target) => {
+const useS3Uploader = (options: Options, inputRef: Target) => {
   const s3Upload = useMemo(() => {
-    return new S3Uploader(options);
+    const s3Uploader = new S3Uploader(options);
+    if (options.test) console.log(s3Uploader);
+    return s3Uploader;
   }, [options, inputRef]);
 
   const onFileChange = useCallback((el, event: Event) => {
@@ -28,8 +34,6 @@ const useS3Uploader = (options, inputRef: Target) => {
 
   useEffect(() => {
     const el = getTargetElement(inputRef);
-    console.log(el)
-
     el.addEventListener('change', (ev) => onFileChange(el, ev));
     return () => {
       el.removeEventListener('change', (ev) => onFileChange(el, ev));

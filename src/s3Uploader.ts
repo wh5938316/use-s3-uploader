@@ -47,7 +47,6 @@ class S3Upload {
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
       this.onUploadStart(file, function (processedFile) {
-        console.log(this);
         this.onProgress(0, 'Waiting', processedFile);
         result.push(this.uploadFile(processedFile));
         return result;
