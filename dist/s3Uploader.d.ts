@@ -22,7 +22,7 @@ declare class S3Upload {
     createCORSRequest(method: any, url: any, opts?: any): XMLHttpRequest;
     executeOnSignedUrl(file: any, callback: any): void;
     onFinish(signResult: any, file: any): void;
-    preprocess(file: any, next: any): any;
+    onUploadStart(file: any, next: any): any;
     onProgress: (percent: any, status: any, file: any) => void;
     onError(status: any, file: any): void;
     onSignedUrl(result: any): void;

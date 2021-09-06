@@ -46,7 +46,7 @@ class S3Upload {
     const result = [];
     for (let i = 0; i < files.length; i++) {
       const file = files[i];
-      this.preprocess(file, function (processedFile) {
+      this.onUploadStart(file, function (processedFile) {
         console.log(this);
         this.onProgress(0, 'Waiting', processedFile);
         result.push(this.uploadFile(processedFile));
@@ -202,8 +202,8 @@ class S3Upload {
     return console.log('base.onFinish()', signResult.publicUrl);
   };
 
-  preprocess(file, next) {
-    console.log('base.preprocess()', file);
+  onUploadStart(file, next) {
+    console.log('base.onUploadStart()', file);
     return next(file);
   };
 
