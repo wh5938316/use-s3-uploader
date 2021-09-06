@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useRef } from 'react';
-// import { useS3Uploader } from '../src';
-import { useS3Uploader } from '../dist/use-s3-uploader.js';
+import { useS3Uploader } from '../src';
+// import { useS3Uploader } from '../dist/use-s3-uploader.js';
 
 const Index = (props) => {
   const inputRef = useRef<HTMLInputElement | null>(null);
@@ -79,7 +79,7 @@ const Index = (props) => {
   useS3Uploader({
     test: true,
     getSignedUrl: getSignedUrl,
-    preprocess: onUploadStart,
+    onUploadStart: onUploadStart,
     onProgress: onProgress,
     onError: onError,
     onFinish: onFinish,
