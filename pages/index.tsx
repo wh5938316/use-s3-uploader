@@ -76,7 +76,6 @@ const Index = (props) => {
     inputRef.current.value = '';
   }
 
-  console.log(useS3Uploader)
   useS3Uploader({
     test: true,
     getSignedUrl: getSignedUrl,

@@ -3,7 +3,7 @@
   "name": "use-s3-uploader",
   "source": "src/index.ts",
   "exports": "./dist/use-s3-uploader.modern.js",
-  "main": "./src/index.ts",
+  "main": "./dist/use-s3-uploader.ts",
   "module": "./dist/use-s3-uploader.module.js",
   "unpkg": "./dist/use-s3-uploader.umd.js",
   "repository": {
@@ -23,29 +23,23 @@
     "uploader"
   ],
   "scripts": {
-    "build:prod": "rm -fr dist && set NODE_ENV=production&& rollup -c rollup.config.js --name use-s3-uploader",
-    "build:prod2": "microbundle --jsx React.createElement --globals react=React",
+    "build:prod": "microbundle --define process.env.NODE_ENV=production --sourcemap false --tsconfig ./tsconfig.json",
     "build:dev": "microbundle --define process.env.NODE_ENV=development --sourcemap true --tsconfig ./tsconfig.json",
     "dev": "next"
   },
   "dependencies": {
     "mime-types": "^2.1.32"
   },
+  "peerDependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "devDependencies": {
-    "@babel/preset-env": "^7.15.4",
-    "@babel/preset-react": "^7.14.5",
-    "@babel/preset-typescript": "^7.15.0",
-    "@rollup/plugin-babel": "^5.3.0",
-    "@rollup/plugin-commonjs": "^20.0.0",
-    "@rollup/plugin-json": "^4.1.0",
-    "@rollup/plugin-node-resolve": "^13.0.4",
     "axios": "^0.21.1",
     "microbundle": "^0.13.3",
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "rollup": "^2.56.3",
-    "rollup-plugin-typescript2": "^0.30.0",
     "typescript": "^4.4.2"
   }
 }
