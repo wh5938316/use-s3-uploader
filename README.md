@@ -1,4 +1,4 @@
-react-s3-uploader
+use-s3-uploader
 ===========================
 
 From Browser
